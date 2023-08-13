@@ -61,11 +61,11 @@ class NxtSlides extends Component {
   }
 
   onClickHeading = () => {
-    this.setState({isHeadingEditing: true})
+    this.setState({isHeadingEditing: true, isDescriptionEditing: false})
   }
 
   onClickDescription = () => {
-    this.setState({isDescriptionEditing: true})
+    this.setState({isDescriptionEditing: true, isHeadingEditing: false})
   }
 
   onChangeHeading = event => {
@@ -116,6 +116,8 @@ class NxtSlides extends Component {
       activeHeading: activeSlide[0].heading,
       activeDescription: activeSlide[0].description,
       activeId: id,
+      isHeadingEditing: false,
+      isDescriptionEditing: false,
     })
   }
 
@@ -134,6 +136,8 @@ class NxtSlides extends Component {
         activeId: newSlideDetails.id,
         activeHeading: newSlideDetails.heading,
         activeDescription: newSlideDetails.description,
+        isHeadingEditing: false,
+        isDescriptionEditing: false,
       },
       console.log(slidesList),
     )
@@ -156,7 +160,7 @@ class NxtSlides extends Component {
             alt="new plus icon"
             src="https://assets.ccbp.in/frontend/react-js/nxt-slides/nxt-slides-plus-icon.png"
           />
-          New
+          <p>New</p>
         </button>
         <div>
           <ol>

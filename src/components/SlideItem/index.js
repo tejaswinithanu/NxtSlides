@@ -1,5 +1,7 @@
 import {Component} from 'react'
 
+import './index.css'
+
 class SlideItem extends Component {
   onClickSlide = () => {
     const {slideDetails, onClickSlideTab} = this.props
@@ -8,11 +10,12 @@ class SlideItem extends Component {
   }
 
   render() {
-    const {slideDetails, slideNumber} = this.props
+    const {slideDetails, slideNumber, isActive} = this.props
     const {heading, description} = slideDetails
+    const bg = isActive ? 'active-bg' : 'bg-color'
     return (
       <li testid={`slideTab${slideNumber}`}>
-        <button onClick={this.onClickSlide} type="button">
+        <button className={bg} onClick={this.onClickSlide} type="button">
           <p>{slideNumber}</p>
           <div>
             <h1>{heading}</h1>
